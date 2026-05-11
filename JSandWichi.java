@@ -39,7 +39,7 @@ public class JSandWichi extends JFrame {
         fillingPanel.add(new JLabel("Choose Filling:"), BorderLayout.NORTH);
         fillingList = new JList<>(fillings);
         fillingList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        fillingList.setSelectedIndex(0); // default selection
+        fillingList.setSelectedIndex(0);
         fillingList.setBorder(BorderFactory.createEtchedBorder());
         fillingPanel.add(new JScrollPane(fillingList), BorderLayout.CENTER);
         centerPanel.add(fillingPanel);
@@ -49,7 +49,7 @@ public class JSandWichi extends JFrame {
         breadPanel.add(new JLabel("Choose Bread:"), BorderLayout.NORTH);
         breadList = new JList<>(breads);
         breadList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        breadList.setSelectedIndex(0); // default selection
+        breadList.setSelectedIndex(0); 
         breadList.setBorder(BorderFactory.createEtchedBorder());
         breadPanel.add(new JScrollPane(breadList), BorderLayout.CENTER);
         centerPanel.add(breadPanel);
@@ -72,7 +72,7 @@ public class JSandWichi extends JFrame {
         fillingList.addListSelectionListener(listener);
         breadList.addListSelectionListener(listener);
         
-        setLocationRelativeTo(null); // center on screen
+        setLocationRelativeTo(null);
         setVisible(true);
     }
     
