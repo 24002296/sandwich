@@ -10,14 +10,14 @@ import java.awt.*;
 
 public class JSandWichi extends JFrame {
     
-    // Data for the sandwich options and prices
+
     private final String[] fillings = {"Chicken", "Beef", "Veggie"};
     private final double[] fillingPrices = {5.50, 6.50, 4.50};
     
     private final String[] breads = {"Rye", "Whole Wheat", "Ciabatta"};
     private final double[] breadPrices = {2.00, 2.50, 3.00};
     
-    // UI Components
+    
     private JList<String> fillingList;
     private JList<String> breadList;
     private JLabel priceLabel;
@@ -27,16 +27,14 @@ public class JSandWichi extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout(10, 10));
         setSize(400, 300);
-        
-        // Top label
+    
         JLabel title = new JLabel("Build Your Sandwich", SwingConstants.CENTER);
         title.setFont(new Font("Arial", Font.BOLD, 20));
         add(title, BorderLayout.NORTH);
         
-        // Center panel for the two list boxes
         JPanel centerPanel = new JPanel(new GridLayout(1, 2, 10, 10));
         
-        // Filling selection
+
         JPanel fillingPanel = new JPanel(new BorderLayout());
         fillingPanel.add(new JLabel("Choose Filling:"), BorderLayout.NORTH);
         fillingList = new JList<>(fillings);
@@ -46,7 +44,7 @@ public class JSandWichi extends JFrame {
         fillingPanel.add(new JScrollPane(fillingList), BorderLayout.CENTER);
         centerPanel.add(fillingPanel);
         
-        // Bread selection
+     
         JPanel breadPanel = new JPanel(new BorderLayout());
         breadPanel.add(new JLabel("Choose Bread:"), BorderLayout.NORTH);
         breadList = new JList<>(breads);
@@ -58,14 +56,13 @@ public class JSandWichi extends JFrame {
         
         add(centerPanel, BorderLayout.CENTER);
         
-        // Bottom panel for price display
+    
         JPanel bottomPanel = new JPanel();
         priceLabel = new JLabel("Total Price: $7.50");
         priceLabel.setFont(new Font("Arial", Font.BOLD, 18));
         bottomPanel.add(priceLabel);
         add(bottomPanel, BorderLayout.SOUTH);
-        
-        // Add listeners to update price when selection changes
+   
         ListSelectionListener listener = new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -83,7 +80,7 @@ public class JSandWichi extends JFrame {
         int fillingIndex = fillingList.getSelectedIndex();
         int breadIndex = breadList.getSelectedIndex();
         
-        // Handle case where nothing is selected yet
+     
         if (fillingIndex == -1 || breadIndex == -1) return;
         
         double total = fillingPrices[fillingIndex] + breadPrices[breadIndex];
@@ -91,7 +88,7 @@ public class JSandWichi extends JFrame {
     }
     
     public static void main(String[] args) {
-        // Run GUI on Event Dispatch Thread
+       
         SwingUtilities.invokeLater(() -> new JSandWichi());
     }
 }
